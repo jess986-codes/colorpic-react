@@ -1,0 +1,31 @@
+{
+  "palettes": [
+    {
+      "name": "hair",
+      "colors": [
+        { "color": "#F67280", "name": "pink" },
+        { "color": "#F8B195", "name": "skin" },
+        { "color": "#C06C84", "name": "grape" },
+        { "color": "#355C7D", "name": "blue" }
+      ]
+    },
+    {
+      "name": "skin",
+      "colors": [
+        { "color": "#CCDA46", "name": "pink" },
+        { "color": "#CCDA46", "name": "skin" },
+        { "color": "#CCDA46", "name": "grape" },
+        { "color": "#CCDA46", "name": "blue" }
+      ]
+    },
+    {
+      "name": "dark",
+      "colors": [
+        { "color": "#697C37", "name": "pink" },
+        { "color": "#697C37", "name": "skin" },
+        { "color": "#697C37", "name": "grape" },
+        { "color": "#697C37", "name": "blue" }
+      ]
+    }
+  ]
+}

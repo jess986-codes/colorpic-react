@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import NavMenu from "./components/navmenu";
+import Content from "./components/content";
+import apiRequest from "./apiRequest";
 
 function App() {
+  const API_URL = "http://localhost:3500/palettes";
+  const [palettes, setPalettes] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [colors, setColors] = useState([]);
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        const response = await fetch(API_URL);
+        const listItems = await response.json();
+        setPalettes(listItems);
+        setColors(listItems[currentIndex].colors);
+        // console.log(listItems[currentIndex].colors);
+      } catch (err) {
+        console.log(err.stack);
+      }
+    };
+    (async () => fetchItems())();
+  }, []);
+
+  const handleIndexChange = (indexChange) => {
+    setCurrentIndex(indexChange);
+    console.log(indexChange);
+    setColors(palettes[indexChange].colors);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <NavMenu palettes={palettes} onIndexChange={handleIndexChange} />
+      <Content colors={colors} />
+    </React.Fragment>
   );
 }
 

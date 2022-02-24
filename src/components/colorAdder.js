@@ -18,8 +18,10 @@ const ColorAdder = (props) => {
     }
   };
 
-  const handlePaste = () => {
-    navigator.clipboard.readText().then((clipText) => validateHex(clipText));
+  const handlePaste = async () => {
+    await navigator.clipboard
+      .readText()
+      .then((clipText) => validateHex(clipText));
   };
 
   const handleChange = (event) => {

@@ -3,28 +3,79 @@
     {
       "name": "hair",
       "colors": [
-        { "color": "#F67280", "name": "pink" },
-        { "color": "#F8B195", "name": "skin" },
-        { "color": "#C06C84", "name": "grape" },
-        { "color": "#355C7D", "name": "blue" }
-      ]
+        {
+          "color": "#355C7D",
+          "name": "blue"
+        },
+        {
+          "color": "#697C37",
+          "name": "#697C37"
+        },
+        {
+          "color": "#CCDA46",
+          "name": "#CCDA46"
+        },
+        {
+          "color": "#C06C84",
+          "name": "grape"
+        },
+        {
+          "color": "#F67280",
+          "name": "pink"
+        },
+        {
+          "color": "#F8B195",
+          "name": "skin"
+        }
+      ],
+      "id": 0
     },
     {
       "name": "skin",
       "colors": [
-        { "color": "#CCDA46", "name": "pink" },
-        { "color": "#CCDA46", "name": "skin" },
-        { "color": "#CCDA46", "name": "grape" },
-        { "color": "#CCDA46", "name": "blue" }
-      ]
+        {
+          "color": "#CCDA46",
+          "name": "skin"
+        },
+        {
+          "color": "#CCDA46",
+          "name": "pink"
+        },
+        {
+          "color": "#CCDA46",
+          "name": "grape"
+        },
+        {
+          "color": "#CCDA46",
+          "name": "blue"
+        },
+        {
+          "color": "#355C7D",
+          "name": "#355C7D"
+        }
+      ],
+      "id": 1
     },
     {
+      "id": 2,
       "name": "dark",
       "colors": [
-        { "color": "#697C37", "name": "pink" },
-        { "color": "#697C37", "name": "skin" },
-        { "color": "#697C37", "name": "grape" },
-        { "color": "#697C37", "name": "blue" }
+        {
+          "color": "#697C37",
+          "name": "pink"
+        },
+        {
+          "color": "#697C37",
+          "name": "skin"
+        },
+        {
+          "color": "#697C37",
+          "name": "grape"
+        },
+        {
+          "color": "#697C37",
+          "name": "blue"
+        }
       ]
     }
   ]

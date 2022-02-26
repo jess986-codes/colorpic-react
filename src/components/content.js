@@ -7,6 +7,7 @@ import {
   swap,
 } from "react-grid-dnd";
 import apiCalls from "../apiCalls";
+import ColorTile from "./colorTile";
 
 const Content = (props) => {
   const currentIndex = props.currentIndex;
@@ -23,9 +24,11 @@ const Content = (props) => {
   const putRequest = async (nextState) => {
     const data = {
       nextState: nextState,
-      paletteName: paletteName,
-      id: props.palettes[currentIndex].id,
+      id: props.palettes[currentIndex]._id,
     };
+
+    console.log(data);
+
     await apiCalls.updateColors(data);
   };
 
@@ -47,11 +50,6 @@ const Content = (props) => {
     console.log(items);
   };
 
-  const handleCopyColor = async (tileColor) => {
-    await navigator.clipboard.writeText(tileColor);
-    console.log(tileColor);
-  };
-
   return (
     <div className="current-palette">
       <h1>{paletteName} Palette</h1>
@@ -61,22 +59,13 @@ const Content = (props) => {
       <GridContextProvider onChange={onChange}>
         <GridDropZone
           id="items"
-          boxesPerRow={3}
+          boxesPerRow={4}
           rowHeight={150}
           style={{ height: "300px" }}
         >
           {items.map((item, index) => (
             <GridItem key={index}>
-              <div className="color">
-                <div
-                  className="color-display"
-                  style={{ backgroundColor: item.color }}
-                  onClick={() => {
-                    handleCopyColor(item.color);
-                  }}
-                ></div>
-                <div className="color-name">{item.name}</div>
-              </div>
+              <ColorTile color={item.color} name={item.name} />
             </GridItem>
           ))}
         </GridDropZone>

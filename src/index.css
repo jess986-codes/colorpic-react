@@ -73,6 +73,11 @@ button {
   padding-left: 1em;
   padding-block: 0.5em;
   text-transform: capitalize;
+  transition: all 0.5s;
+}
+
+.set:hover {
+  background-color: var(--pale-pink);
 }
 
 .set.selected {

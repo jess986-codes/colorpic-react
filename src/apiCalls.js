@@ -16,10 +16,18 @@ const helpers = {
 
     await fetch(`/palettes/${data.id}`, putOptions);
   },
+  updateColorName: async function (data) {
+    const putOptions = {
+      method: "PUT",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify({ colorName: data.colorName }),
+    };
+
+    await fetch(`/palettes/${data.id}/${data.colorId}`, putOptions);
+  },
   //   updatePaletes: function () {},
   //   deleteColors: function () {},
   //   deletePalette: function () {},
-  //   postColors: function () {},
   //   postPalette: function () {},
 };
 

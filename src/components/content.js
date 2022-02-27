@@ -65,7 +65,10 @@ const Content = (props) => {
         >
           {items.map((item, index) => (
             <GridItem key={index}>
-              <ColorTile color={item.color} name={item.name} />
+              <ColorTile
+                item={item}
+                paletteId={props.palettes[currentIndex]._id}
+              />
             </GridItem>
           ))}
         </GridDropZone>

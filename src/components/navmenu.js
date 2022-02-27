@@ -15,6 +15,8 @@ const NavMenu = (props) => {
     props.onIndexChange(index);
   };
 
+  const handleNewSet = () => {};
+
   return (
     <nav>
       <div className="palette-menu">
@@ -33,7 +35,7 @@ const NavMenu = (props) => {
           </div>
         ))}
       </div>
-      <button onClick={handleSetClick} className="button-right">
+      <button onClick={handleNewSet} className="button-right">
         NEW
       </button>
     </nav>

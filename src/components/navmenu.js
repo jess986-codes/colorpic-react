@@ -1,9 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import paletteIcon from "../assets/images/palette-solid.svg";
+import apiCalls from "../apiCalls";
 
 const NavMenu = (props) => {
-  const palettes = props.palettes.map((palette) => palette.name);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [toggle, setToggle] = useState(false);
+  const [paletteName, setPaletteName] = useState("");
+  const sets = props.sets;
+  const [palettes, setPalettes] = useState([]);
+
+  useEffect(() => {
+    console.log(`these are the sets in navmenu.js: ${props.palettes}`);
+    setPalettes(sets);
+  }, [sets]);
 
   const handleClassSelected = (index) => {
     const classSelected = "set";
@@ -15,7 +24,15 @@ const NavMenu = (props) => {
     props.onIndexChange(index);
   };
 
-  const handleNewSet = () => {};
+  const handleRename = (event) => {
+    setPaletteName(event.target.value);
+  };
+
+  const handleNewSet = () => {
+    setPalettes([...palettes, paletteName]);
+    const data = { paletteName: paletteName };
+    apiCalls.postPalette(data);
+  };
 
   return (
     <nav>
@@ -35,7 +52,38 @@ const NavMenu = (props) => {
           </div>
         ))}
       </div>
-      <button onClick={handleNewSet} className="button-right">
+
+      {toggle ? (
+        <input
+          className="new-palette-input"
+          autoFocus
+          onBlur={(event) => {
+            setToggle(!toggle);
+            event.preventDefault();
+            event.stopPropagation();
+          }}
+          type="text"
+          value={paletteName}
+          onChange={handleRename}
+          onKeyDown={(event) => {
+            if (event.key === "Enter" || event.key === "Escape") {
+              setToggle(!toggle);
+              handleNewSet();
+              event.preventDefault();
+              event.stopPropagation();
+            }
+          }}
+        />
+      ) : (
+        ""
+      )}
+
+      <button
+        onClick={() => {
+          setToggle(!toggle);
+        }}
+        className="button-right"
+      >
         NEW
       </button>
     </nav>

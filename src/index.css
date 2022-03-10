@@ -114,11 +114,14 @@ button {
 }
 
 input[type="text"] {
+  padding: 0.5rem 1rem;
+  outline: none;
+}
+
+input[type="text"].color-adder-input {
   border: 2px solid var(--dark-gray);
   border-radius: 8px;
-  padding: 0.5rem 1rem;
   width: 14rem;
-  outline: none;
 }
 
 .paste-button {
@@ -139,6 +142,5 @@ input[type="text"] {
 .color-display {
   height: 100px;
   width: 100px;
-  background-color: #f67280;
   border-radius: 16px;
 }

@@ -8,6 +8,7 @@ function App() {
   const [palettes, setPalettes] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [colors, setColors] = useState([]);
+  const [sets, setSets] = useState([]);
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -16,6 +17,10 @@ function App() {
         const listItems = await response.json();
         setPalettes(listItems);
         setColors(listItems[currentIndex].colors);
+        setSets(listItems.map((palette) => palette.name));
+        console.log(
+          `grabbing updated colors in app.js ${listItems[currentIndex].colors}`
+        );
       } catch (err) {
         console.log(err.stack);
       }
@@ -25,12 +30,12 @@ function App() {
 
   const handleIndexChange = (indexChange) => {
     setCurrentIndex(indexChange);
-    console.log(indexChange);
+    console.log(`index changed to: ${indexChange}`);
   };
 
   return (
     <React.Fragment>
-      <NavMenu palettes={palettes} onIndexChange={handleIndexChange} />
+      <NavMenu sets={sets} onIndexChange={handleIndexChange} />
       <Content
         palettes={palettes}
         colors={colors}

@@ -28,7 +28,14 @@ const helpers = {
   //   updatePaletes: function () {},
   //   deleteColors: function () {},
   //   deletePalette: function () {},
-  //   postPalette: function () {},
+  postPalette: async function (data) {
+    const postOptions = {
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+    };
+
+    await fetch(`/palettes/${data.paletteName}`, postOptions);
+  },
 };
 
 export default helpers;

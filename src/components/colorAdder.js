@@ -39,6 +39,7 @@ const ColorAdder = (props) => {
         <div className="color-preview" style={{ backgroundColor: color }}></div>
         <div className="color-input">
           <input
+            className="color-adder-input"
             type="text"
             value={hexCode}
             onChange={handleChange}

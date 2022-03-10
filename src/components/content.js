@@ -19,6 +19,7 @@ const Content = (props) => {
 
   useEffect(() => {
     setItems(colors);
+    console.log(`setting colors in content.js to: ${JSON.stringify(colors)}`);
   }, [colors]);
 
   const putRequest = async (nextState) => {
@@ -27,7 +28,7 @@ const Content = (props) => {
       id: props.palettes[currentIndex]._id,
     };
 
-    console.log(data);
+    console.log(`updating color palette set to db in content.js: ${data}`);
 
     await apiCalls.updateColors(data);
   };
@@ -36,7 +37,7 @@ const Content = (props) => {
   async function onChange(sourceId, sourceIndex, targetIndex, targetId) {
     const nextState = swap(items, sourceIndex, targetIndex);
     setItems(nextState);
-    console.log(nextState);
+    console.log(`new palatte set colors in content.js: ${nextState}`);
 
     putRequest(nextState);
   }
@@ -47,7 +48,6 @@ const Content = (props) => {
       setItems(newItems);
       putRequest(newItems);
     }
-    console.log(items);
   };
 
   return (
@@ -63,8 +63,8 @@ const Content = (props) => {
           rowHeight={150}
           style={{ height: "300px" }}
         >
-          {items.map((item, index) => (
-            <GridItem key={index}>
+          {items.map((item) => (
+            <GridItem key={item._id}>
               <ColorTile
                 item={item}
                 paletteId={props.palettes[currentIndex]._id}

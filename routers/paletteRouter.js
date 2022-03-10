@@ -36,4 +36,17 @@ module.exports = {
       }
     );
   },
+
+  addPalette: function (req, res) {
+    Palette.create(
+      {
+        _id: new mongoose.Types.ObjectId(),
+        name: req.params.paletteName,
+      },
+      function (err, palette) {
+        if (err) return res.status(400).json(err);
+        else res.json(palette);
+      }
+    );
+  },
 };

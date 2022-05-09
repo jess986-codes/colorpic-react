@@ -43,6 +43,7 @@ button {
   border: none;
   padding: 1em;
   cursor: pointer;
+  margin-top: 1rem;
 }
 
 .button-right {
@@ -131,6 +132,7 @@ input[type="text"].color-adder-input {
   bottom: 0;
   border-radius: 0px 8px 8px 0px;
   background-color: var(--pale-pink);
+  margin-top: 0;
 }
 
 .color-grid {

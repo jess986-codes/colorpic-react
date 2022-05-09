@@ -32,6 +32,7 @@ const NavMenu = (props) => {
     setPalettes([...palettes, paletteName]);
     const data = { paletteName: paletteName };
     apiCalls.postPalette(data);
+    setPaletteName("");
   };
 
   return (
@@ -74,9 +75,7 @@ const NavMenu = (props) => {
             }
           }}
         />
-      ) : (
-        ""
-      )}
+      ) : null}
 
       <button
         onClick={() => {

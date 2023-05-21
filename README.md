@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# Copit
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Solution to the difficulty in saving specific colour palettes in Clip Studio Art. It allows artists to copy hex code colours, create new palette themes and rearrange colour tiles. Next implementation in mind is to allow users to import palettes to graphic editors.
 
-## Available Scripts
+## How to setup
 
-In the project directory, you can run:
+1. Node.js installed through one of the following:
 
-### `npm start`
+```
+a) download for your OS here: https://nodejs.org/en/download/
+b) using homebrew on Linux: brew install node
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. Ensure the path to Node.js is in your PATH environment variables under user and system variables.\
+   Instructions here: https://love2dev.com/blog/node-is-not-recognized-as-an-internal-or-external-command/
+3. In command line, navigate to the root project directory input the following:
+   `npm install`
+4. Install MongoDB. Follow these instructions for your specific system: https://www.mongodb.com/docs/manual/administration/install-community/
+5. Install MongoDB Compass: https://www.mongodb.com/products/compass
+6. Once MongoDB Compass is installed, connect to your the localhost server and create a new database named: "colorpic"
+7. Within the "colorpic" database, create a collection called "palettes"
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Time to run
 
-### `npm test`
+1. The first thing you MUST do is start the server to connect to the MongoDB database:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+node server.js
+```
 
-### `npm run build`
+> This makes the database accesible by the actual colorpic application which is achieved by making API requests to localhost:8080.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Now we run the colorpic react app:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+npm run start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## How it should look
 
-### `npm run eject`
+### When you first start up the app:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![color pic screenshot](./images/colorpic-first-start-up-look.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### When you add a palette:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![color pic add palette screenshot](./images/add-new-palette.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![color pic palette added screenshot](./images/palette-added.png)
 
-## Learn More
+### When you add a colour:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![color pic add colour screenshot](./images/add-color.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![color pic colour added screenshot](./images/color-tile-added.png)
 
-### Code Splitting
+### When you rename a colour by double-clicking name:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![color pic colour tile renamed screenshot](./images/rename-colour.png)
 
-### Analyzing the Bundle Size
+### When you add another colour:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![color pic add another colour screenshot](./images/add-another-colour.png)
 
-### Making a Progressive Web App
+### When you swap colour tile positions by draging tiles where you want them to be:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![color pic rearrange colour tiles screenshot](./images/rearrange-colours.png)
 
-### Advanced Configuration
+### Set of palettes and colours:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![color pic fully populated screenshot](./images/color-pic-populated-db.png)
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+> This app is not fully complete and requires more error-checking to be implemented for any edge cases when using this app. It also requires other functionalities such as renaming palettes and deleting colour tiles.
